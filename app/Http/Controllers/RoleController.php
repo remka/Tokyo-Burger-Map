@@ -56,4 +56,45 @@ class RoleController extends Controller
       return view('roles.show',compact('role','rolePermissions'));
   }
 
+  public function edit($id)
+  {
+      $role = Role::find($id);
+      $permission = Permission::get();
+      $rolePermissions = DB::table("permission_role")->where("permission_role.role_id",$id)
+          ->pluck('permission_role.permission_id','permission_role.permission_id')->toArray();
+
+      return view('roles.edit',compact('role','permission','rolePermissions'));
+  }
+
+  public function update(Request $request, $id)
+  {
+      $this->validate($request, [
+          'display_name' => 'required',
+          'description' => 'required',
+          'permission' => 'required',
+      ]);
+
+      $role = Role::find($id);
+      $role->display_name = $request->input('display_name');
+      $role->description = $request->input('description');
+      $role->save();
+
+      DB::table("permission_role")->where("permission_role.role_id",$id)
+          ->delete();
+
+      foreach ($request->input('permission') as $key => $value) {
+          $role->attachPermission($value);
+      }
+
+      return redirect()->route('roles.index')
+                      ->with('success','Role updated successfully');
+  }
+
+  public function destroy($id)
+  {
+      DB::table("roles")->where('id',$id)->delete();
+      return redirect()->route('roles.index')
+                      ->with('success','Role deleted successfully');
+  }
+
 }

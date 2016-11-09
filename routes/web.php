@@ -20,6 +20,9 @@ Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
 Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);
 Route::post('roles/create',['as'=>'roles.store','uses'=>'RoleController@store']);
 Route::get('roles/{id}',['as'=>'roles.show','uses'=>'RoleController@show']);
+Route::get('roles/{id}/edit',['as'=>'roles.edit','uses'=>'RoleController@edit']);
+Route::patch('roles/{id}',['as'=>'roles.update','uses'=>'RoleController@update']);
+Route::delete('roles/{id}',['as'=>'roles.destroy','uses'=>'RoleController@destroy']);
 
 // Full user CRUD, no permissions for now
 Route::get('users',['as'=>'users.index','uses'=>'UserController@index']);
@@ -44,8 +47,8 @@ Route::group(['middleware' => ['auth']], function() {
 	//Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create','middleware' => ['permission:role-create']]);
 	//Route::post('roles/create',['as'=>'roles.store','uses'=>'RoleController@store','middleware' => ['permission:role-create']]);
 	//Route::get('roles/{id}',['as'=>'roles.show','uses'=>'RoleController@show']);
-	Route::get('roles/{id}/edit',['as'=>'roles.edit','uses'=>'RoleController@edit','middleware' => ['permission:role-edit']]);
-	Route::patch('roles/{id}',['as'=>'roles.update','uses'=>'RoleController@update','middleware' => ['permission:role-edit']]);
-	Route::delete('roles/{id}',['as'=>'roles.destroy','uses'=>'RoleController@destroy','middleware' => ['permission:role-delete']]);
+	//Route::get('roles/{id}/edit',['as'=>'roles.edit','uses'=>'RoleController@edit','middleware' => ['permission:role-edit']]);
+	//Route::patch('roles/{id}',['as'=>'roles.update','uses'=>'RoleController@update','middleware' => ['permission:role-edit']]);
+	//Route::delete('roles/{id}',['as'=>'roles.destroy','uses'=>'RoleController@destroy','middleware' => ['permission:role-delete']]);
 
 });
