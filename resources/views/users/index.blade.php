@@ -47,7 +47,7 @@
             </td>
             <td>
               <a class="btn btn-info btn-xs" href="{{ route('users.show',$user->id) }}">Show</a>
-              <a class="btn btn-primary btn-xs" href="#">Edit</a>
+              <a class="btn btn-primary btn-xs" href="{{ route('users.edit',$user->id) }}">Edit</a>
               <a class="btn btn-danger btn-xs" href="#">Delete</a>
             </td>
           </tr>
