@@ -28,35 +28,36 @@
 
   <div class="row">
     <div class="col-md-10">
-      <form class="form-horizontal" action="{{ route('users.edit',$user->id) }}" method="POST">
+
+      {!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id], 'class'=>'form-horizontal']) !!}
 
         <input type="hidden" name="_method" value="PATCH">
 
         <div class="form-group">
           <label for="name" class="col-sm-2 control-label">Name</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ $user->name }}">
+            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control', 'id' => 'name')) !!}
           </div>
         </div>
 
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ $user->email }}">
+            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control', 'id' => 'email')) !!}
           </div>
         </div>
 
         <div class="form-group">
           <label for="password" class="col-sm-2 control-label">Password</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control', 'id' => 'password')) !!}
           </div>
         </div>
 
         <div class="form-group">
           <label for="confirm-password" class="col-sm-2 control-label">Confirm Password:</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Password">
+            {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control', 'id' => 'confirm-password')) !!}
           </div>
         </div>
 
@@ -73,9 +74,8 @@
           </div>
         </div>
 
-        {{ csrf_field() }}
+      {!! Form::close() !!}
 
-      </form>
     </div>
     <div class="col-md-2">
         YO

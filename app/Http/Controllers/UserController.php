@@ -69,7 +69,6 @@ class UserController extends Controller
             'roles' => 'required'
         ]);
 
-        /*
         $input = $request->all();
         if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
@@ -85,10 +84,16 @@ class UserController extends Controller
         foreach ($request->input('roles') as $key => $value) {
             $user->attachRole($value);
         }
-        */
 
         return redirect()->route('users.index')
                         ->with('success','User updated successfully');
+    }
+
+    public function destroy($id)
+    {
+        User::find($id)->delete();
+        return redirect()->route('users.index')
+                        ->with('success','User deleted successfully');
     }
 
 }
