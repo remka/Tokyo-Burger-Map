@@ -63,15 +63,7 @@
         <div class="form-group">
           <label for="roles" class="col-sm-2 control-label">Roles</label>
           <div class="col-sm-10">
-            <select name="roles[]" id="roles" class="form-control" multiple="multiple">
-              @foreach ($roles as $role)
-              <option value="{{ $role->id }}">{{ $role->display_name }}</option>
-              @endforeach
-            </select>
-            @foreach ($roles as $role)
-            {{ $role->id }} | {{ $role->display_name }} |
-            <br />
-            @endforeach
+            {!! Form::select('roles[]', $roles, $userRoles, array('class' => 'form-control','multiple')) !!}
           </div>
         </div>
 

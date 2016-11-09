@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function create()
     {
-        $roles = Role::all();
+        $roles = Role::pluck('display_name','id');
         return view('users.create',compact('roles'));
     }
 
@@ -53,8 +53,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $roles = Role::all();
-        $userRoles = $user->roles->toArray();
+        $roles = Role::pluck('display_name','id');
+        $userRoles = $user->roles->pluck('id','id')->toArray();
+
         return view('users.edit',compact('user','roles','userRoles'));
     }
 
