@@ -33,19 +33,28 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($data as $key => $user)
+          @foreach ($users as $user)
           <tr>
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
-            <td>xxx</td>
             <td>
-              xxx
+              @if(!empty($user->roles))
+        				@foreach($user->roles as $v)
+        					<label class="label label-success">{{ $v->display_name }}</label>
+        				@endforeach
+        			@endif
+            </td>
+            <td>
+              <a class="btn btn-info btn-xs" href="{{ route('users.show',$user->id) }}">Show</a>
+              <a class="btn btn-primary btn-xs" href="#">Edit</a>
+              <a class="btn btn-danger btn-xs" href="#">Delete</a>
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
+      {{ $users->links() }}
     </div>
     <div class="col-md-2">
         YO

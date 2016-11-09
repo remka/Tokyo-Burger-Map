@@ -21,6 +21,8 @@ Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']
 
 Route::get('users',['as'=>'users.index','uses'=>'UserController@index']);
 Route::get('users/create',['as'=>'users.create','uses'=>'UserController@create']);
+Route::get('users/{id}',['as'=>'users.show','uses'=>'UserController@show']);
+Route::post('users/create',['as'=>'users.store','uses'=>'UserController@store']);
 
 Auth::routes();
 

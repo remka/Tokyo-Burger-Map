@@ -13,14 +13,41 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $data = User::orderBy('id','DESC')->paginate(5);
-        return view('users.index',compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $users = User::orderBy('id','ASC')->paginate(5);
+        return view('users.index', ['users' => $users]);
     }
 
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        return view('users.create',compact('roles'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:users,name',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|same:confirm-password',
+            'roles' => 'required'
+        ]);
+
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']);
+
+        $user = User::create($input);
+        foreach ($request->input('roles') as $key => $value) {
+            $user->attachRole($value);
+        }
+
+        return redirect()->route('users.index')
+                        ->with('success','User created successfully');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('users.show',compact('user'));
     }
 
 }
