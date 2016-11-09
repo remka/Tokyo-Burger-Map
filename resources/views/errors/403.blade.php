@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="title">Be right back.</div>
+	<h1>You don't have permission.</h1>
 @endsection
