@@ -11,7 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <!-- <link href="/css/app.css" rel="stylesheet"> -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
     body {
@@ -51,6 +52,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ route('users.index') }}">Users</a></li>
                         <li><a href="{{ route('roles.index') }}">Roles</a></li>
                     </ul>
 
@@ -67,7 +69,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
+                                  <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                                  <li><a href="#">My profile</a></li>
+                                  <li role="separator" class="divider"></li>
+                                  <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

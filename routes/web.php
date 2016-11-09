@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// for now, no permissions
 Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
+Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);
+
+Route::get('users',['as'=>'users.index','uses'=>'UserController@index']);
+Route::get('users/create',['as'=>'users.create','uses'=>'UserController@create']);
 
 Auth::routes();
 
@@ -23,11 +28,11 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::get('/home', 'HomeController@index');
 
-	Route::resource('users','UserController');
+	//Route::resource('users','UserController');
 
   // Roles
 	// Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index','middleware' => ['permission:role-list|role-create|role-edit|role-delete']]);
-	Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create','middleware' => ['permission:role-create']]);
+	//Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create','middleware' => ['permission:role-create']]);
 	Route::post('roles/create',['as'=>'roles.store','uses'=>'RoleController@store','middleware' => ['permission:role-create']]);
 	Route::get('roles/{id}',['as'=>'roles.show','uses'=>'RoleController@show']);
 	Route::get('roles/{id}/edit',['as'=>'roles.edit','uses'=>'RoleController@edit','middleware' => ['permission:role-edit']]);
