@@ -23,4 +23,37 @@ class RoleController extends Controller
       return view('roles.create',compact('permission'));
   }
 
+  public function store(Request $request)
+  {
+      $this->validate($request, [
+          'name' => 'required|unique:roles,name',
+          'display_name' => 'required',
+          'description' => 'required',
+          'permission' => 'required',
+      ]);
+
+      $role = new Role();
+      $role->name = $request->input('name');
+      $role->display_name = $request->input('display_name');
+      $role->description = $request->input('description');
+      $role->save();
+
+      foreach ($request->input('permission') as $key => $value) {
+          $role->attachPermission($value);
+      }
+
+      return redirect()->route('roles.index')
+                      ->with('success','Role created successfully');
+  }
+
+  public function show($id)
+  {
+      $role = Role::find($id);
+      $rolePermissions = Permission::join("permission_role","permission_role.permission_id","=","permissions.id")
+          ->where("permission_role.role_id",$id)
+          ->get();
+
+      return view('roles.show',compact('role','rolePermissions'));
+  }
+
 }

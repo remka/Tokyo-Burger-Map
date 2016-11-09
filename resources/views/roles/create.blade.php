@@ -3,9 +3,14 @@
 @section('content')
 <div class="container">
 
-  @if ($message = Session::get('success'))
-		<div class="alert alert-success">
-			<p>{{ $message }}</p>
+  @if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<strong>Whoops!</strong> There were some problems with your input.<br><br>
+			<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach
+			</ul>
 		</div>
 	@endif
 
@@ -23,26 +28,27 @@
 
   <div class="row">
     <div class="col-md-10">
-      <form class="form-horizontal">
+
+      {!! Form::open(array('route' => 'roles.store','method'=>'POST','class'=>'form-horizontal')) !!}
 
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Role name</label>
+          <label for="name" class="col-sm-2 control-label">Role name</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Role name">
+            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control','id' => 'name')) !!}
           </div>
         </div>
 
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Role display name</label>
+          <label for="display_name" class="col-sm-2 control-label">Role display name</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Role display name">
+            {!! Form::text('display_name', null, array('placeholder' => 'Display Name','class' => 'form-control','id' => 'display_name')) !!}
           </div>
         </div>
 
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Role description</label>
+          <label for="description" class="col-sm-2 control-label">Role description</label>
           <div class="col-sm-10">
-            <textarea class="form-control" rows="3" placeholder="Role description"></textarea>
+            {!! Form::textarea('description', null, array('placeholder' => 'Description','class' => 'form-control','rows'=>5,'id' => 'description')) !!}
           </div>
         </div>
 
@@ -52,7 +58,7 @@
             @foreach($permission as $value)
           	<div class="checkbox">
               <label>
-                <input type="checkbox" value="">
+                {{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
                 {{ $value->display_name }}
               </label>
             </div>
@@ -66,7 +72,8 @@
           </div>
         </div>
 
-      </form>
+      {!! Form::close() !!}
+
     </div>
     <div class="col-md-2">
         YO
