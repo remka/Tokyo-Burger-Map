@@ -42,6 +42,21 @@ Route::get('permissions/{id}/edit',['as'=>'permissions.edit','uses'=>'Permission
 Route::patch('permissions/{id}',['as'=>'permissions.update','uses'=>'PermissionController@update']);
 Route::delete('permissions/{id}',['as'=>'permissions.destroy','uses'=>'PermissionController@destroy']);
 
+// admin
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function() {
+
+    // add middleware after each of these
+    // and auth in group params
+
+    // Dashboard
+    Route::get('/',['as'=>'admin.index','uses'=>'HomeController@index']);
+
+    // Users
+    Route::get('users',['as'=>'admin.users','uses'=>'UserController@index']);
+    Route::get('users/create',['as'=>'admin.users.create','uses'=>'UserController@create']);
+    Route::post('users/create',['as'=>'admin.users.store','uses'=>'UserController@store']);
+});
+
 
 Auth::routes();
 

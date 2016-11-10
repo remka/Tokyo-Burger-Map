@@ -11,7 +11,7 @@
 
   <div class="row">
     <div class="col-md-9">
-      <h2>Role Management</h2>
+      <h2>Roles management</h2>
     </div>
     <div class="col-md-3">
       <a class="btn btn-success btn-lg btn-block action-button" href="{{ route('roles.create') }}"> Create new role</a>

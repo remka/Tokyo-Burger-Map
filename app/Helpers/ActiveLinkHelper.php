@@ -17,10 +17,12 @@ function justActive($path)
     return Request::is($path . '*') ? 'active' :  '';
 }
 
-function activeUri($cont)
+function activeUri($cont, $id)
 {
-    $uri = Request::segment(1);
+    $uri = Request::segment($id);
     if($cont == $uri) {
       return 'active';
-    };
+    } elseif ($cont == '' && !isset($uri)) {
+      return 'active';
+    }
 }
