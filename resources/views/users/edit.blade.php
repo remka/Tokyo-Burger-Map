@@ -15,16 +15,13 @@
 	@endif
 
   <div class="row">
-    <div class="col-lg-12 margin-tb">
-      <div class="pull-left">
+    <div class="col-md-9">
       <h2>Edit an user</h2>
-      </div>
-      <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
-      </div>
+    </div>
+    <div class="col-md-3">
+      <a class="btn btn-default btn-lg btn-block action-button" href="{{ route('users.index') }}"> Back</a>
     </div>
   </div>
-
 
   <div class="row">
     <div class="col-md-9">

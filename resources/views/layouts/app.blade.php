@@ -19,6 +19,9 @@
       /* min-height: 2000px; */
       padding-top: 50px;
     }
+    .action-button {
+      margin: 20px 0;
+    }
     </style>
 
     <!-- Scripts -->

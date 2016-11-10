@@ -4,13 +4,11 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-lg-12 margin-tb">
-      <div class="pull-left">
-        <h2>Show a role</h2>
-      </div>
-      <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-      </div>
+    <div class="col-md-9">
+      <h2>Show a role</h2>
+    </div>
+    <div class="col-md-3">
+      <a class="btn btn-default btn-lg btn-block action-button" href="{{ route('roles.index') }}"> Back</a>
     </div>
   </div>
 

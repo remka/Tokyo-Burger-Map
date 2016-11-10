@@ -10,13 +10,11 @@
   @endif
 
   <div class="row">
-    <div class="col-lg-12 margin-tb">
-      <div class="pull-left">
-      <h2>Users management</h2>
-      </div>
-      <div class="pull-right">
-        <a class="btn btn-success" href="{{ route('users.create') }}"> Create new user</a>
-      </div>
+    <div class="col-md-9">
+      <h2>Show user</h2>
+    </div>
+    <div class="col-md-3">
+      <a class="btn btn-success btn-lg btn-block action-button" href="{{ route('users.create') }}"> Create new user</a>
     </div>
   </div>
 

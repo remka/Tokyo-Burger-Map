@@ -33,6 +33,15 @@ Route::get('users/{id}/edit',['as'=>'users.edit','uses'=>'UserController@edit'])
 Route::patch('users/{id}/edit',['as'=>'users.update','uses'=>'UserController@update']);
 Route::delete('users/{id}',['as'=>'users.destroy','uses'=>'UserController@destroy']);
 
+// permissions
+Route::get('permissions',['as'=>'permissions.index','uses'=>'PermissionController@index']);
+Route::get('permissions/create',['as'=>'permissions.create','uses'=>'PermissionController@create']);
+Route::post('permissions/create',['as'=>'permissions.store','uses'=>'PermissionController@store']);
+Route::get('permissions/{id}',['as'=>'permissions.show','uses'=>'PermissionController@show']);
+Route::get('permissions/{id}/edit',['as'=>'permissions.edit','uses'=>'PermissionController@edit']);
+Route::patch('permissions/{id}',['as'=>'permissions.update','uses'=>'PermissionController@update']);
+Route::delete('permissions/{id}',['as'=>'permissions.destroy','uses'=>'PermissionController@destroy']);
+
 
 Auth::routes();
 
