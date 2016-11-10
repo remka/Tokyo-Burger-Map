@@ -29,7 +29,7 @@
             <th>Action</th>
           </tr>
         </thead>
-      <tbody>
+        <tbody>
         @foreach ($roles as $key => $role)
         <tr>
           <td>{{ ++$i }}</td>

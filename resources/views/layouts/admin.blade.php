@@ -128,10 +128,9 @@
           <input type="text" class="form-control" placeholder="Search...">
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Dashboard</a></li>
           <li><a href="#">Settings</a></li>
           <li><a href="#">Profile</a></li>
-          <li><a href="#">Help</a></li>
+          <li><a href="{{ url('/') }}" target="_blank">Launch site</a></li>
         </ul>
       </div>
     </div>

@@ -55,6 +55,12 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function() {
     Route::get('users',['as'=>'admin.users','uses'=>'UserController@index']);
     Route::get('users/create',['as'=>'admin.users.create','uses'=>'UserController@create']);
     Route::post('users/create',['as'=>'admin.users.store','uses'=>'UserController@store']);
+
+    // Roles
+    Route::get('roles',['as'=>'admin.roles','uses'=>'RoleController@index']);
+
+    // Permissions
+    Route::get('permissions',['as'=>'admin.permissions','uses'=>'PermissionController@index']);
 });
 
 

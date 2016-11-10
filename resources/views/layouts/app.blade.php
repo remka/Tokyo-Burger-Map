@@ -100,7 +100,7 @@
     <div class="container">
       <hr>
       <footer>
-        <p>&copy; 2016 {{ config('app.name', 'Laravel') }} &middot; <a href="{{ route('admin.index') }}">Admin</a></p>
+        <p>&copy; 2016 {{ config('app.name', 'Laravel') }} &middot; <a href="{{ route('admin.index') }}" target="_blank">Admin</a></p>
       </footer>
     </div>
 
