@@ -50,7 +50,7 @@
               <td>
                 @if(!empty($user->roles))
           				@foreach($user->roles as $v)
-          					<label class="label label-success">{{ $v->display_name }}</label>
+          					<label class="label label-success caps">{{ $v->display_name }}</label>
           				@endforeach
           			@endif
               </td>

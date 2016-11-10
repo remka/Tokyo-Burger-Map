@@ -97,6 +97,10 @@
       .main .page-header {
         margin-top: 0;
       }
+
+      .caps {
+        text-transform: uppercase;
+      }
     </style>
 
     <!-- Scripts -->
