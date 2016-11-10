@@ -12,8 +12,31 @@ class PermissionController extends Controller
 {
   public function index(Request $request)
   {
-      $permissions = Permission::orderBy('id','DESC')->paginate(10);
+      $permissions = Permission::orderBy('id','ASC')->paginate(10);
       return view('admin.permissions.index',compact('permissions'));
+  }
+
+  public function create()
+  {
+      return view('admin.permissions.create');
+  }
+
+  public function store(Request $request)
+  {
+      $this->validate($request, [
+          'name' => 'required|unique:permissions,name',
+          'display_name' => 'required',
+          'description' => 'required'
+      ]);
+
+      $permission = new Permission();
+      $permission->name = $request->input('name');
+      $permission->display_name = $request->input('display_name');
+      $permission->description = $request->input('description');
+      $permission->save();
+
+      return redirect()->route('admin.permissions')
+                      ->with('success','Permission created successfully.');
   }
 
 }

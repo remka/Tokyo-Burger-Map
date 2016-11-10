@@ -12,14 +12,14 @@ class RoleController extends Controller
 {
   public function index(Request $request)
   {
-      $roles = Role::orderBy('id','DESC')->paginate(10);
+      $roles = Role::orderBy('id','ASC')->paginate(10);
       return view('admin.roles.index',compact('roles'));
   }
 
   public function create()
   {
       $permission = Permission::get();
-      return view('roles.create',compact('permission'));
+      return view('admin.roles.create',compact('permission'));
   }
 
   public function store(Request $request)

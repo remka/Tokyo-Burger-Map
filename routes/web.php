@@ -61,6 +61,8 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function() {
 
     // Permissions
     Route::get('permissions',['as'=>'admin.permissions','uses'=>'PermissionController@index']);
+    Route::get('permissions/create',['as'=>'admin.permissions.create','uses'=>'PermissionController@create']);
+    Route::post('permissions/create',['as'=>'admin.permissions.store','uses'=>'PermissionController@store']);
 });
 
 

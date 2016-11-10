@@ -25,7 +25,7 @@
       </ol>
 
       <div class="pull-right">
-        <a class="btn btn-success" href="#"> Create new permission</a>
+        <a class="btn btn-success" href="{{ route('admin.permissions.create') }}"> Create new permission</a>
       </div>
 
       <h1 class="page-header">Manage permissions</h1>

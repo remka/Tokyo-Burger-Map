@@ -12,7 +12,7 @@
 
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li><a href="{{ route('admin.users') }}">Manage users</a></li>
+        <li><a href="{{ route('admin.users') }}">Users</a></li>
         <li class="active">Create an user</li>
       </ol>
 
