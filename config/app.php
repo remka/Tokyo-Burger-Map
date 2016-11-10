@@ -184,6 +184,9 @@ return [
         // laravelcollective/html
         Collective\Html\HtmlServiceProvider::class,
 
+        // helpers
+        App\Providers\HelperServiceProvider::class,
+
     ],
 
     /*

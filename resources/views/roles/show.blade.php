@@ -15,7 +15,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-9">
 
       <div class="row">
         <div class="col-sm-2">
@@ -49,8 +49,8 @@
       </div>
 
     </div>
-    <div class="col-md-2">
-      YOOO
+    <div class="col-md-3">
+      @include('partials.managersidebar')
     </div>
   </div>
 

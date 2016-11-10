@@ -27,7 +27,7 @@
 
 
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-9">
 
       {!! Form::open(array('route' => 'users.store','method'=>'POST','class' => 'form-horizontal')) !!}
 
@@ -73,9 +73,9 @@
         </div>
 
         {!! Form::close() !!}
-        
+
     </div>
-    <div class="col-md-2">
-        YO
+    <div class="col-md-3">
+        @include('partials.managersidebar')
     </div>
   </div>

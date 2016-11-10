@@ -27,7 +27,7 @@
 
 
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-9">
 
       {!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id], 'class'=>'form-horizontal']) !!}
 
@@ -77,7 +77,7 @@
       {!! Form::close() !!}
 
     </div>
-    <div class="col-md-2">
-        YO
+    <div class="col-md-3">
+        @include('partials.managersidebar')
     </div>
   </div>
