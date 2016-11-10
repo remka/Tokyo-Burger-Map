@@ -34,11 +34,11 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Roles</th>
-              <th>Actions</th>
+              <th style="width:5%;">#</th>
+              <th style="width:20%;">Name</th>
+              <th style="width:20%;">Email</th>
+              <th style="width:35%;">Roles</th>
+              <th style="width:20%;">Actions</th>
             </tr>
           </thead>
           <tbody>
