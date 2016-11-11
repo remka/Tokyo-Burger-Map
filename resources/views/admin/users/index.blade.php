@@ -37,7 +37,7 @@
               <th style="width:5%;">#</th>
               <th style="width:20%;">Name</th>
               <th style="width:20%;">Email</th>
-              <th style="width:35%;">Roles</th>
+              <th style="width:35%;" class="hidden-xs">Roles</th>
               <th style="width:20%;">Actions</th>
             </tr>
           </thead>
@@ -47,7 +47,7 @@
               <td>{{ $user->id }}</td>
               <td>{{ $user->name }}</td>
               <td><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
-              <td>
+              <td class="hidden-xs">
                 @if(!empty($user->roles))
           				@foreach($user->roles as $v)
           					<label class="label label-success caps">{{ $v->display_name }}</label>
@@ -65,11 +65,10 @@
             @endforeach
           </tbody>
         </table>
+      </div>
 
-        <div class="text-center">
-          {{ $users->links() }}
-        </div>
-
+      <div class="text-center">
+        {{ $users->links() }}
       </div>
 
     </div>

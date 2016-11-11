@@ -22,7 +22,7 @@
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Dashboard</a></li>
         <li><a href="{{ route('admin.permissions') }}">Permissions</a></li>
-        <li class="active">Create permission</li>
+        <li class="active">Edit permission</li>
       </ol>
 
       <div class="pull-right">
@@ -45,12 +45,12 @@
       <div class="panel panel-default">
         <div class="panel-body">
 
-          {!! Form::open(array('route' => 'admin.permissions.store','method'=>'POST','class' => 'form-horizontal')) !!}
+          {!! Form::model($permission, ['method' => 'PATCH','route' => ['admin.permissions.update', $permission->id], 'class'=>'form-horizontal']) !!}
 
           <div class="form-group">
             <label for="name" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-              {!! Form::text('name', null, array('placeholder' => 'Permission name','class' => 'form-control','id' => 'name')) !!}
+              {!! Form::text('name', null, array('placeholder' => 'Permission name','class' => 'form-control','id' => 'name','readonly' => 'readonly')) !!}
             </div>
           </div>
 
@@ -70,7 +70,7 @@
 
           <div class="form-group">
             <div class="col-sm-8 col-sm-offset-2">
-              <button type="submit" class="btn btn-primary btn-lg">Create new permission</button>
+              <button type="submit" class="btn btn-primary btn-lg">Edit permission</button>
             </div>
           </div>
 

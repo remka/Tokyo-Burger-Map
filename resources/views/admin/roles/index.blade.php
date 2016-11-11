@@ -36,7 +36,7 @@
             <tr>
               <th style="width:5%;">#</th>
               <th style="width:20%;">Name</th>
-              <th style="width:55%;">Description</th>
+              <th style="width:55%;" class="hidden-xs">Description</th>
               <th style="width:20%;">Actions</th>
             </tr>
           </thead>
@@ -45,7 +45,7 @@
           <tr>
             <td>{{ $role->id }}</td>
             <td>{{ $role->display_name }}</td>
-            <td>{{ $role->description }}</td>
+            <td class="hidden-xs">{{ $role->description }}</td>
             <td>
               <a class="btn btn-info btn-xs" href="{{ route('roles.show',$role->id) }}">Show</a>
               <a class="btn btn-primary btn-xs" href="{{ route('roles.edit',$role->id) }}">Edit</a>
@@ -57,11 +57,10 @@
           @endforeach
         </tbody>
         </table>
-        
-        <div class="text-center">
-          {{ $roles->links() }}
-        </div>
+      </div>
 
+      <div class="text-center">
+        {{ $roles->links() }}
       </div>
 
     </div>

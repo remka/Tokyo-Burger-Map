@@ -36,7 +36,7 @@
             <tr>
               <th style="width:5%;">#</th>
               <th style="width:20%;">Name</th>
-              <th style="width:55%;">Description</th>
+              <th style="width:55%;" class="hidden-xs">Description</th>
               <th style="width:20%;">Actions</th>
             </tr>
           </thead>
@@ -45,20 +45,22 @@
           <tr>
             <td>{{ $permission->id }}</td>
             <td>{{ $permission->display_name }}</td>
-            <td>{{ $permission->description }}</td>
+            <td class="hidden-xs">{{ $permission->description }}</td>
             <td>
-              <a class="btn btn-info btn-xs" href="#">Show</a>
-              <a class="btn btn-primary btn-xs" href="#">Edit</a>
+              <a class="btn btn-info btn-xs" href="{{ route('admin.permissions.show',$permission->id) }}">Show</a>
+              <a class="btn btn-primary btn-xs" href="{{ route('admin.permissions.edit',$permission->id) }}">Edit</a>
+              {!! Form::open(['method' => 'DELETE','route' => ['admin.permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
+              {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+          	  {!! Form::close() !!}
             </td>
           </tr>
           @endforeach
         </tbody>
         </table>
+      </div>
 
-        <div class="text-center">
-          {{ $permissions->links() }}
-        </div>
-
+      <div class="text-center">
+        {{ $permissions->links() }}
       </div>
 
     </div>
