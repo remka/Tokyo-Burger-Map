@@ -43,7 +43,7 @@ Route::patch('permissions/{id}',['as'=>'permissions.update','uses'=>'PermissionC
 Route::delete('permissions/{id}',['as'=>'permissions.destroy','uses'=>'PermissionController@destroy']);
 
 // admin
-Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function() {
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'permission:see-admin']), function() {
 
     // add middleware after each of these
     // and auth in group params

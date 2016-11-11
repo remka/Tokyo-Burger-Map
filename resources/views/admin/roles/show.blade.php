@@ -62,6 +62,21 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-sm-2">
+                <strong>Permissions:</strong>
+              </div>
+              <div class="col-sm-10">
+                @if(!empty($rolePermissions))
+                <ul>
+                  @foreach($rolePermissions as $v)
+        						<li>{{ $v->display_name }}</li>
+        					@endforeach
+                </ul>
+      				  @endif
+              </div>
+            </div>
+
           </div>
       </div>
 
