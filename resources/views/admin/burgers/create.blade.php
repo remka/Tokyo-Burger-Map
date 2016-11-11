@@ -94,6 +94,27 @@
       </div>
 
       <div class="form-group">
+        <label for="address_3" class="col-sm-2 control-label">Address 3</label>
+        <div class="col-sm-10">
+          {!! Form::text('address_3', null, array('placeholder' => '1F','class' => 'form-control','id' => 'address_3')) !!}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="municipality" class="col-sm-2 control-label">Municipality</label>
+        <div class="col-sm-10">
+          {!! Form::text('municipality', null, array('placeholder' => 'Shibuya Ku','class' => 'form-control','id' => 'municipality')) !!}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prefecture" class="col-sm-2 control-label">Prefecture</label>
+        <div class="col-sm-10">
+          {!! Form::text('prefecture', null, array('placeholder' => 'Tōkyo To','class' => 'form-control','id' => 'prefecture')) !!}
+        </div>
+      </div>
+
+      <div class="form-group">
         <div class="col-sm-8 col-sm-offset-2">
           <button type="submit" class="btn btn-primary btn-lg">Create new burger</button>
         </div>
