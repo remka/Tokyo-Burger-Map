@@ -187,6 +187,10 @@ return [
         // helpers
         App\Providers\HelperServiceProvider::class,
 
+        // Iseed
+        // https://github.com/orangehill/iseed
+        Orangehill\Iseed\IseedServiceProvider::class,
+
     ],
 
     /*
