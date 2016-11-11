@@ -25,7 +25,7 @@
       </ol>
 
       <div class="pull-right">
-        <a class="btn btn-success" href="{{ route('admin.users.create') }}"> Create new role</a>
+        <a class="btn btn-success" href="{{ route('admin.roles.create') }}"> Create new role</a>
       </div>
 
       <h1 class="page-header">Manage roles</h1>
@@ -47,9 +47,9 @@
             <td>{{ $role->display_name }}</td>
             <td class="hidden-xs">{{ $role->description }}</td>
             <td>
-              <a class="btn btn-info btn-xs" href="{{ route('roles.show',$role->id) }}">Show</a>
-              <a class="btn btn-primary btn-xs" href="{{ route('roles.edit',$role->id) }}">Edit</a>
-              {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
+              <a class="btn btn-info btn-xs" href="{{ route('admin.roles.show',$role->id) }}">Show</a>
+              <a class="btn btn-primary btn-xs" href="{{ route('admin.roles.edit',$role->id) }}">Edit</a>
+              {!! Form::open(['method' => 'DELETE','route' => ['admin.roles.destroy', $role->id],'style'=>'display:inline']) !!}
               {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
           	  {!! Form::close() !!}
             </td>

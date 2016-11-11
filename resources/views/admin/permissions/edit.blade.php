@@ -29,7 +29,7 @@
         <a class="btn btn-default" href="{{ route('admin.permissions') }}"> Back</a>
       </div>
 
-      <h1 class="page-header">Create a permission</h1>
+      <h1 class="page-header">Edit a permission</h1>
 
       @if (count($errors) > 0)
         <div class="alert alert-danger">

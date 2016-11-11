@@ -51,6 +51,7 @@
             <label for="name" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
               {!! Form::text('name', null, array('placeholder' => 'Permission name','class' => 'form-control','id' => 'name')) !!}
+              <span id="helpBlock" class="help-block">Use lower case and dashes instead of spaces <code>my-name</code> instead of <code>My Name</code>.</span>
             </div>
           </div>
 

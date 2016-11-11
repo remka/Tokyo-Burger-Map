@@ -32,7 +32,7 @@ class RoleController extends Controller
       ]);
 
       $role = new Role();
-      $role->name = $request->input('name');
+      $role->name = slugify($request->input('name'));
       $role->display_name = $request->input('display_name');
       $role->description = $request->input('description');
       $role->save();
@@ -41,8 +41,8 @@ class RoleController extends Controller
           $role->attachPermission($value);
       }
 
-      return redirect()->route('roles.index')
-                      ->with('success','Role created successfully');
+      return redirect()->route('admin.roles')
+                      ->with('success','Role created successfully.');
   }
 
   public function show($id)
@@ -52,7 +52,7 @@ class RoleController extends Controller
           ->where("permission_role.role_id",$id)
           ->get();
 
-      return view('roles.show',compact('role','rolePermissions'));
+      return view('admin.roles.show',compact('role','rolePermissions'));
   }
 
   public function edit($id)
@@ -62,7 +62,7 @@ class RoleController extends Controller
       $rolePermissions = DB::table("permission_role")->where("permission_role.role_id",$id)
           ->pluck('permission_role.permission_id','permission_role.permission_id')->toArray();
 
-      return view('roles.edit',compact('role','permission','rolePermissions'));
+      return view('admin.roles.edit',compact('role','permission','rolePermissions'));
   }
 
   public function update(Request $request, $id)
@@ -85,15 +85,15 @@ class RoleController extends Controller
           $role->attachPermission($value);
       }
 
-      return redirect()->route('roles.index')
-                      ->with('success','Role updated successfully');
+      return redirect()->route('admin.roles')
+                      ->with('success','Role updated successfully.');
   }
 
   public function destroy($id)
   {
       DB::table("roles")->where('id',$id)->delete();
-      return redirect()->route('roles.index')
-                      ->with('success','Role deleted successfully');
+      return redirect()->route('admin.roles')
+                      ->with('success','Role deleted successfully.');
   }
 
 }

@@ -30,7 +30,7 @@ class PermissionController extends Controller
       ]);
 
       $permission = new Permission();
-      $permission->name = str_replace(' ', '-', strtolower(trim($request->input('name'))));
+      $permission->name = slugify($request->input('name'));
       $permission->display_name = $request->input('display_name');
       $permission->description = $request->input('description');
       $permission->save();

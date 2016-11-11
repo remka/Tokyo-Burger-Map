@@ -58,6 +58,12 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function() {
 
     // Roles
     Route::get('roles',['as'=>'admin.roles','uses'=>'RoleController@index']);
+    Route::get('roles/create',['as'=>'admin.roles.create','uses'=>'RoleController@create']);
+    Route::post('roles/create',['as'=>'admin.roles.store','uses'=>'RoleController@store']);
+    Route::get('roles/{id}',['as'=>'admin.roles.show','uses'=>'RoleController@show']);
+    Route::get('roles/{id}/edit',['as'=>'admin.roles.edit','uses'=>'RoleController@edit']);
+    Route::patch('roles/{id}',['as'=>'admin.roles.update','uses'=>'RoleController@update']);
+    Route::delete('roles/{id}',['as'=>'admin.roles.destroy','uses'=>'RoleController@destroy']);
 
     // Permissions
     Route::get('permissions',['as'=>'admin.permissions','uses'=>'PermissionController@index']);

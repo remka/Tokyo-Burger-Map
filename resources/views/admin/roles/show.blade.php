@@ -12,15 +12,15 @@
 
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li><a href="{{ route('admin.permissions') }}">Permissions</a></li>
-        <li class="active">{{ $permission->display_name }}</li>
+        <li><a href="{{ route('admin.roles') }}">Roles</a></li>
+        <li class="active">{{ $role->display_name }}</li>
       </ol>
 
       <div class="pull-right">
-        <a class="btn btn-default" href="{{ route('admin.permissions') }}"> Back</a>
+        <a class="btn btn-default" href="{{ route('admin.roles') }}"> Back</a>
       </div>
 
-      <h1 class="page-header">Permission: {{ $permission->display_name }}</h1>
+      <h1 class="page-header">Role: {{ $role->display_name }}</h1>
 
 
       <div class="panel panel-default">
@@ -31,7 +31,7 @@
                 <strong>ID:</strong>
               </div>
               <div class="col-sm-10">
-                {{ $permission->id }}
+                {{ $role->id }}
               </div>
             </div>
 
@@ -40,7 +40,7 @@
                 <strong>Name:</strong>
               </div>
               <div class="col-sm-10">
-                {{ $permission->name }}
+                {{ $role->name }}
               </div>
             </div>
 
@@ -49,7 +49,7 @@
                 <strong>Display name:</strong>
               </div>
               <div class="col-sm-10">
-                {{ $permission->display_name }}
+                {{ $role->display_name }}
               </div>
             </div>
 
@@ -58,7 +58,7 @@
                 <strong>Description:</strong>
               </div>
               <div class="col-sm-10">
-                {{ $permission->description }}
+                {{ $role->description }}
               </div>
             </div>
 
