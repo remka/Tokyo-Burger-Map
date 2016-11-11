@@ -47,7 +47,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show',compact('user'));
+        return view('admin.users.show',compact('user'));
     }
 
     public function edit($id)
@@ -56,7 +56,7 @@ class UserController extends Controller
         $roles = Role::pluck('display_name','id');
         $userRoles = $user->roles->pluck('id','id')->toArray();
 
-        return view('users.edit',compact('user','roles','userRoles'));
+        return view('admin.users.edit',compact('user','roles','userRoles'));
     }
 
     public function update(Request $request, $id)
@@ -85,15 +85,15 @@ class UserController extends Controller
             $user->attachRole($value);
         }
 
-        return redirect()->route('users.index')
-                        ->with('success','User updated successfully');
+        return redirect()->route('admin.users')
+                         ->with('success','User updated successfully.');
     }
 
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
+        return redirect()->route('admin.users')
+                         ->with('success','User deleted successfully.');
     }
 
 }

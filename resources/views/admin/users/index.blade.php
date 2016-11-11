@@ -50,14 +50,14 @@
               <td class="hidden-xs">
                 @if(!empty($user->roles))
           				@foreach($user->roles as $v)
-          					<label class="label label-success caps">{{ $v->display_name }}</label>
+          					<label class="label label-default caps">{{ $v->display_name }}</label>
           				@endforeach
           			@endif
               </td>
               <td>
-                <a class="btn btn-info btn-xs" href="{{ route('users.show',$user->id) }}">Show</a>
-                <a class="btn btn-primary btn-xs" href="{{ route('users.edit',$user->id) }}">Edit</a>
-                {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                <a class="btn btn-info btn-xs" href="{{ route('admin.users.show',$user->id) }}">Show</a>
+                <a class="btn btn-primary btn-xs" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>
+                {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline']) !!}
                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
           	    {!! Form::close() !!}
               </td>

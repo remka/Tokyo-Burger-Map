@@ -28,8 +28,6 @@
 
       {!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id], 'class'=>'form-horizontal']) !!}
 
-        <input type="hidden" name="_method" value="PATCH">
-
         <div class="form-group">
           <label for="name" class="col-sm-2 control-label">Name</label>
           <div class="col-sm-10">
