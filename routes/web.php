@@ -77,6 +77,11 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 
     Route::get('permissions/{id}/edit',['as'=>'admin.permissions.edit','uses'=>'PermissionController@edit']);
     Route::patch('permissions/{id}',['as'=>'admin.permissions.update','uses'=>'PermissionController@update']);
     Route::delete('permissions/{id}',['as'=>'admin.permissions.destroy','uses'=>'PermissionController@destroy']);
+
+    // Burgers
+    Route::get('burgers',['as'=>'admin.burgers','uses'=>'RestaurantController@index']);
+    Route::get('burgers/create',['as'=>'admin.burgers.create','uses'=>'RestaurantController@create']);
+    Route::post('burgers/create',['as'=>'admin.burgers.store','uses'=>'RestaurantController@store']);
 });
 
 

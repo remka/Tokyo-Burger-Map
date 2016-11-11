@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,5 +23,10 @@ class Restaurant extends Model
       'has_nonsmoking',
       'has_vegetarian'
     ];
+
+  public function user()
+   {
+       return $this->hasOne('App\User');
+   }
 
 }
