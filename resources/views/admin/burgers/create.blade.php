@@ -61,7 +61,7 @@
       <div class="form-group">
         <label for="description" class="col-sm-2 control-label">Description</label>
         <div class="col-sm-10">
-          {!! Form::textarea('description', null, array('placeholder' => 'A short description','class' => 'form-control','id' => 'description')) !!}
+          {!! Form::textarea('description', null, array('placeholder' => 'A short description','class' => 'form-control','id' => 'description', 'rows' => 4)) !!}
         </div>
       </div>
 
@@ -113,6 +113,40 @@
           {!! Form::text('prefecture', null, array('placeholder' => 'Tōkyo To','class' => 'form-control','id' => 'prefecture')) !!}
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="postcode" class="col-sm-2 control-label">Postcode</label>
+        <div class="col-sm-10">
+          {!! Form::text('postcode', null, array('placeholder' => '150-0001','class' => 'form-control','id' => 'postcode')) !!}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country" class="col-sm-2 control-label">Country</label>
+        <div class="col-sm-10">
+          {!! Form::text('country', null, array('placeholder' => 'JA','class' => 'form-control','id' => 'country')) !!}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Options</label>
+        <div class="col-sm-10">
+          <div class="checkbox">
+            <label>
+              {{ Form::checkbox('has_nonsmoking', 1, false) }}
+              Non-smoking area
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{ Form::checkbox('has_vegetarian', 1, false) }}
+              Vegetarian menu
+            </label>
+          </div>
+        </div>
+      </div>
+
+
 
       <div class="form-group">
         <div class="col-sm-8 col-sm-offset-2">
