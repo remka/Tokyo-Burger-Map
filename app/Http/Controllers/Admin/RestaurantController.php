@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use App\User;
 use DB;
+use Auth;
 
 class RestaurantController extends Controller
 {
@@ -30,16 +31,29 @@ class RestaurantController extends Controller
             'longitude' => 'required|numeric'
         ]);
 
-
         $burger = new Restaurant();
+
         $burger->title_en = $request->input('name_en');
         $burger->title_ja = $request->input('name_ja');
-        /*
-        $permission->name = slugify($request->input('name'));
-        $permission->display_name = $request->input('display_name');
-        $permission->description = $request->input('description');
-        $permission->save();
-        */
+        $burger->title_slug = slugify($request->input('name_en'));
+
+        $burger->latitude = $request->input('latitude');
+        $burger->longitude = $request->input('longitude');
+
+        $burger->address_1 = $request->input('address_1');
+        $burger->address_2 = $request->input('address_2');
+        $burger->address_3 = $request->input('address_3');
+        $burger->municipality = $request->input('municipality');
+        $burger->prefecture = $request->input('prefecture');
+        $burger->postcode = $request->input('postcode');
+        $burger->country = $request->input('country');
+
+        $burger->has_nonsmoking = $request->input('has_nonsmoking');
+        $burger->has_vegetarian = $request->input('has_vegetarian');
+
+        $burger->user_id = Auth::user()->id;
+
+        $burger->save();
 
         return redirect()->route('admin.burgers')
                         ->with('success','Burger created successfully.');

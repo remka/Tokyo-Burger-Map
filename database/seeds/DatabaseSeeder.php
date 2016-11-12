@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        $this->call('RolesTableSeeder');
+        $this->call('UsersSeeder');
+        $this->call('RoleTableSeeder');
         $this->call('RoleUserTableSeeder');
         $this->call('PermissionsTableSeeder');
     }
