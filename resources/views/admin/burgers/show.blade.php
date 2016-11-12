@@ -153,7 +153,7 @@
 
             <div class="row">
               <div class="col-sm-2">
-                <strong>has_nonsmoking</strong>
+                <strong>Non-smoking area</strong>
               </div>
               <div class="col-sm-10">
                 {{ $burger->has_nonsmoking }}
@@ -162,7 +162,7 @@
 
             <div class="row">
               <div class="col-sm-2">
-                <strong>has_vegetarian</strong>
+                <strong>Vegetarian menu</strong>
               </div>
               <div class="col-sm-10">
                 {{ $burger->has_vegetarian }}
@@ -171,10 +171,10 @@
 
             <div class="row">
               <div class="col-sm-2">
-                <strong>user_id</strong>
+                <strong>Added by</strong>
               </div>
               <div class="col-sm-10">
-                {{ $burger->user_id }}
+                <a href="{{ route('admin.users.show',$user->id) }}">{{ $user->name }}</a>
               </div>
             </div>
 
