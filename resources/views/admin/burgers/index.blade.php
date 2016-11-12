@@ -30,6 +30,35 @@
 
       <h1 class="page-header">Manage burgers</h1>
 
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width:5%;">#</th>
+              <th style="width:35%;">Name (EN)</th>
+              <th style="width:35%;" class="hidden-xs">Name (JA)</th>
+              <th style="width:25%;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          @foreach ($burgers as $key => $burger)
+          <tr>
+            <td>{{ $burger->id }}</td>
+            <td>{{ $burger->name_en }}</td>
+            <td class="hidden-xs">{{ $burger->name_ja }}</td>
+            <td>
+              <a class="btn btn-info btn-xs" href="{{ route('admin.burgers.show',$burger->id) }}">Show</a>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+        </table>
+      </div>
+
+      <div class="text-center">
+        {{ $burgers->links() }}
+      </div>
+
     </div>
   </div>
 </div>

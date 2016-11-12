@@ -104,13 +104,6 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="country" class="col-sm-2 control-label">Country</label>
-            <div class="col-sm-10">
-              {!! Form::text('country', null, array('placeholder' => 'JA','class' => 'form-control','id' => 'country','value' => 'JA','readonly' => 'readonly')) !!}
-            </div>
-          </div>
-
         </div>
 
         <div class="col-md-6">

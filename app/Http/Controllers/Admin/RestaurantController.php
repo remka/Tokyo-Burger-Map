@@ -46,10 +46,19 @@ class RestaurantController extends Controller
         $burger->municipality = $request->input('municipality');
         $burger->prefecture = $request->input('prefecture');
         $burger->postcode = $request->input('postcode');
-        $burger->country = $request->input('country');
+        $burger->country = 'JA';
 
-        $burger->has_nonsmoking = $request->input('has_nonsmoking');
-        $burger->has_vegetarian = $request->input('has_vegetarian');
+        if (is_null($request->input('has_nonsmoking'))) {
+          $burger->has_nonsmoking = 0;
+        } else {
+          $burger->has_nonsmoking = $request->input('has_nonsmoking');
+        }
+
+        if (is_null($request->input('has_vegetarian'))) {
+          $burger->has_vegetarian = 0;
+        } else {
+          $burger->has_vegetarian = $request->input('has_vegetarian');
+        }
 
         $burger->user_id = Auth::user()->id;
 
@@ -57,6 +66,16 @@ class RestaurantController extends Controller
 
         return redirect()->route('admin.burgers')
                         ->with('success','Burger created successfully.');
+    }
+
+    public function show($id)
+    {
+        $burger = Restaurant::find($id);
+        if ( ! $burger ) {
+          abort(404);
+        } else {
+          return view('admin.burgers.show',compact('burger'));
+        }
     }
 
 }
