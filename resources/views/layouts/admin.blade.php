@@ -101,6 +101,11 @@
       .caps {
         text-transform: uppercase;
       }
+      #map {
+        height: 250px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
     </style>
 
     <!-- Scripts -->
@@ -162,6 +167,8 @@
 
   <!-- Scripts -->
   <script src="/js/app.js"></script>
+
+  @yield('mapscripts')
 
 </body>
 </html>

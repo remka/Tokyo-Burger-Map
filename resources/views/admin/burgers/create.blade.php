@@ -365,10 +365,18 @@
 
         <div class="col-md-6">
 
+          <?php /*
           <div class="form-group">
             <label for="description" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-10">
               {!! Form::textarea('description', null, array('placeholder' => 'A short description','class' => 'form-control','id' => 'description', 'rows' => 2)) !!}
+            </div>
+          </div>
+          */ ?>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <div id="map"></div>
             </div>
           </div>
 
@@ -409,7 +417,9 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-lg">Create new burger</button>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary btn-lg">Create new burger</button>
+                </div>
             </div>
           </div>
         </div>
@@ -419,4 +429,69 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('mapscripts')
+<script>
+
+var map;
+var markers = [];
+
+var initMap = function() {
+   var tokyo = {lat: 35.682956, lng: 139.753969};
+
+   map = new google.maps.Map(document.getElementById('map'), {
+     zoom: 12,
+     center: tokyo,
+     streetViewControl: false,
+     mapTypeControl: false,
+     clickableIcons: false
+   });
+
+   // This event listener will call addMarker() when the map is clicked.
+   map.addListener('click', function(e) {
+     addMarker(e.latLng);
+     setLatLong(e.latLng.lat(), e.latLng.lng());
+   });
+
+   // Adds a marker at the center of the map.
+   // addMarker(haightAshbury);
+ }
+
+  var addMarker = function(location) {
+   deleteMarkers();
+   var marker = new google.maps.Marker({
+     position: location,
+     map: map
+   });
+   markers.push(marker);
+ }
+
+  var setMapOnAll = function(map) {
+   for (var i = 0; i < markers.length; i++) {
+     markers[i].setMap(map);
+   }
+ }
+
+var clearMarkers = function() {
+   setMapOnAll(null);
+ }
+
+var showMarkers = function() {
+   setMapOnAll(map);
+ }
+
+ var deleteMarkers = function() {
+   clearMarkers();
+   markers = [];
+ }
+
+var setLatLong = function(lat, lng) {
+  var lat = parseFloat(lat.toFixed(6));
+  var lng = parseFloat(lng.toFixed(6));
+  $('#latitude').val(lat);
+  $('#longitude').val(lng);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1KVyOd1wgik0a1CVTL1RHP1RCEAQpLdA&callback=initMap" async defer></script>
 @endsection
