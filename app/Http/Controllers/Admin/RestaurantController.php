@@ -32,7 +32,8 @@ class RestaurantController extends Controller
 
 
         $burger = new Restaurant();
-        
+        $burger->title_en = $request->input('name_en');
+        $burger->title_ja = $request->input('name_ja');
         /*
         $permission->name = slugify($request->input('name'));
         $permission->display_name = $request->input('display_name');
