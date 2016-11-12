@@ -31,6 +31,7 @@ class CreateRestaurantsTable extends Migration
             $table->text('prefecture');
             $table->text('postcode');
             $table->char('country', 2);
+
             $table->boolean('has_nonsmoking')->default(false);
             $table->boolean('has_vegetarian')->default(false);
 

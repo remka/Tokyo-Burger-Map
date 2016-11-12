@@ -12,30 +12,30 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('permissions')->delete();
-        
+
         \DB::table('permissions')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'role-list',
                 'display_name' => 'Display Role Listing',
-                'description' => 'see listing Of Roles',
+                'description' => 'see listing of roles',
                 'created_at' => '2016-11-11 16:47:14',
                 'updated_at' => '2016-11-11 16:47:14',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'name' => 'role-create',
                 'display_name' => 'Create Role',
-                'description' => 'create New Role',
+                'description' => 'create new role',
                 'created_at' => '2016-11-11 16:47:14',
                 'updated_at' => '2016-11-11 16:47:14',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'name' => 'role-edit',
@@ -44,7 +44,7 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2016-11-11 16:47:14',
                 'updated_at' => '2016-11-11 16:47:14',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'name' => 'role-delete',
@@ -53,7 +53,7 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2016-11-11 16:47:14',
                 'updated_at' => '2016-11-11 16:47:14',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'name' => 'resto-list',
@@ -62,7 +62,7 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2016-11-11 16:47:14',
                 'updated_at' => '2016-11-11 16:47:14',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'name' => 'resto-create',
@@ -71,7 +71,7 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2016-11-11 16:47:14',
                 'updated_at' => '2016-11-11 16:47:14',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'name' => 'resto-edit',
@@ -80,7 +80,7 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2016-11-11 16:47:14',
                 'updated_at' => '2016-11-11 16:47:14',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'name' => 'resto-delete',
@@ -89,7 +89,7 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2016-11-11 16:47:14',
                 'updated_at' => '2016-11-11 16:47:14',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'name' => 'see-admin',
@@ -99,7 +99,7 @@ class PermissionsTableSeeder extends Seeder
                 'updated_at' => '2016-11-11 16:50:02',
             ),
         ));
-        
-        
+
+
     }
 }
