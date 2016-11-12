@@ -49,16 +49,16 @@
         <div class="col-md-6">
 
           <div class="form-group">
-            <label for="title_en" class="col-sm-2 control-label">Name (EN)</label>
+            <label for="name_en" class="col-sm-2 control-label">Name (EN)</label>
             <div class="col-sm-10">
-              {!! Form::text('title_en', null, array('placeholder' => 'Ex: THE GREAT BURGER','class' => 'form-control','id' => 'title_en')) !!}
+              {!! Form::text('name_en', null, array('placeholder' => 'Ex: THE GREAT BURGER','class' => 'form-control','id' => 'name_en')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="title_ja" class="col-sm-2 control-label">Name (JA)</label>
+            <label for="name_ja" class="col-sm-2 control-label">Name (JA)</label>
             <div class="col-sm-10">
-              {!! Form::text('title_ja', null, array('placeholder' => 'Ex: ザ グレートバーガー','class' => 'form-control','id' => 'title_ja')) !!}
+              {!! Form::text('name_ja', null, array('placeholder' => 'Ex: ザ グレートバーガー','class' => 'form-control','id' => 'name_ja')) !!}
             </div>
           </div>
 

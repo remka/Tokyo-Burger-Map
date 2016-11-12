@@ -21,4 +21,27 @@ class RestaurantController extends Controller
         return view('admin.burgers.create');
     }
 
+    public function store(Request $request)
+    {
+
+        $this->validate($request, [
+            'name_en' => 'required',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric'
+        ]);
+
+
+        $burger = new Restaurant();
+        
+        /*
+        $permission->name = slugify($request->input('name'));
+        $permission->display_name = $request->input('display_name');
+        $permission->description = $request->input('description');
+        $permission->save();
+        */
+
+        return redirect()->route('admin.burgers')
+                        ->with('success','Burger created successfully.');
+    }
+
 }
