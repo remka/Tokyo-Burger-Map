@@ -17,7 +17,7 @@ class BurgerController extends Controller
     return view('burgers.index', ['burgers' => $burgers]);
   }
 
-  public function show($id)
+  public function show($id, $slug)
   {
       $burger = Restaurant::find($id);
       if ( ! $burger ) {
