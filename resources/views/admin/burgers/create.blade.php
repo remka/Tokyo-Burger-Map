@@ -211,7 +211,9 @@ var initMap = function() {
        validLng = true;
      };
      if (validLat && validLng) {
-       addMarker({lat: inputLat, lng: inputLng});
+       var newPos = {lat: inputLat, lng: inputLng};
+       addMarker(newPos);
+       map.setCenter(newPos);
      }
    };
 
