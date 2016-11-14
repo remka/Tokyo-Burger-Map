@@ -181,6 +181,7 @@ var map;
 var markers = [];
 
 var initMap = function() {
+
    var tokyo = {lat: 35.682956, lng: 139.753969};
 
    map = new google.maps.Map(document.getElementById('map'), {
@@ -197,8 +198,23 @@ var initMap = function() {
      setLatLong(e.latLng.lat(), e.latLng.lng());
    });
 
-   // Adds a marker at the center of the map.
-   // addMarker(haightAshbury);
+   // If submission error, and lat/long input are not empty
+   if( $('#latitude').val() && $('#longitude').val() ) {
+     var validLat = false;
+     var validLng = false;
+     var inputLat = parseFloat($('#latitude').val());
+     var inputLng = parseFloat($('#longitude').val());
+     if (typeof inputLat === 'number' && inputLat <= 90 && inputLat >= -90) {
+       validLat = true;
+     };
+     if (typeof inputLng === 'number' && inputLng <= 180 && inputLng >= -180) {
+       validLng = true;
+     };
+     if (validLat && validLng) {
+       addMarker({lat: inputLat, lng: inputLng});
+     }
+   };
+
  }
 
   var addMarker = function(location) {
