@@ -13,7 +13,7 @@ class BurgerController extends Controller
 {
   public function index(Request $request)
   {
-    $burgers = Restaurant::orderBy('name_en','ASC')->paginate(10);
+    $burgers = Restaurant::orderBy('name_en','ASC')->paginate(12);
     return view('burgers.index', ['burgers' => $burgers]);
   }
 

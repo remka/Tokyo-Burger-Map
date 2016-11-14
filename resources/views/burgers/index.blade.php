@@ -26,5 +26,11 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="text-center">
+        {{ $burgers->links() }}
+    </div>
+</div>
+
 </div>
 @endsection
