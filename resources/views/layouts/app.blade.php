@@ -54,7 +54,8 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li class="{{ activeUri('', 1) }}"><a href="{{ url('/') }}">Home</a></li>
+                        <li class="{{ activeUri('burgers', 1) }}"><a href="{{ route('burgers.index') }}">Burgers</a></li>
                         <li><a href="{{ route('users.index') }}">Users</a></li>
                         <li><a href="{{ route('roles.index') }}">Roles</a></li>
                     </ul>

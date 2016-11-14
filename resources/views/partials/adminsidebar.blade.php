@@ -4,6 +4,8 @@
 
 <ul class="nav nav-sidebar">
   <li class="{{ activeUri('burgers', 2) }}"><a href="{{ route('admin.burgers') }}">Burgers</a></li>
+  <li class="{{ activeUri('medias', 2) }}"><a href="#">Medias</a></li>
+  <li class="{{ activeUri('comments', 2) }}"><a href="#">Comments</a></li>
 </ul>
 
 <ul class="nav nav-sidebar">

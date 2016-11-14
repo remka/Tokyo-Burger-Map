@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// burgers
+Route::get('burgers',['as'=>'burgers.index','uses'=>'BurgerController@index']);
+
 // for now, no permissions
 Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
 Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);

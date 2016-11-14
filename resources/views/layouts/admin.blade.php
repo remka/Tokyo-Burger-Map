@@ -129,18 +129,12 @@
         <a class="navbar-brand" href="{{ route('admin.index') }}">Administration</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
-        <form class="navbar-form navbar-right">
-          <input type="text" class="form-control" placeholder="Search...">
-        </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Settings</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="{{ url('/') }}" target="_blank">Launch site</a></li>
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                   {{ Auth::user()->name }} <span class="caret"></span>
               </a>
-
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ url('/home') }}">Dashboard</a></li>
                 <li><a href="#">My profile</a></li>
@@ -158,6 +152,7 @@
                   </li>
               </ul>
           </li>
+          <li><a href="{{ url('/') }}" target="_blank">Launch site</a></li>
         </ul>
       </div>
     </div>
