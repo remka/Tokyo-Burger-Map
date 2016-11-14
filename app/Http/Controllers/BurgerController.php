@@ -17,4 +17,15 @@ class BurgerController extends Controller
     return view('burgers.index', ['burgers' => $burgers]);
   }
 
+  public function show($id)
+  {
+      $burger = Restaurant::find($id);
+      if ( ! $burger ) {
+        abort(404);
+      } else {
+        $user = Restaurant::find($id)->user;
+        return view('burgers.show',compact('burger', 'user'));
+      }
+  }
+
 }

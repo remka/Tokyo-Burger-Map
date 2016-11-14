@@ -14,9 +14,11 @@
       @foreach ($burgers as $key => $burger)
         <div class="col-sm-4 col-md-3">
           <div class="thumbnail">
-            <img src="http://placehold.it/600x600">
+            <a href="{{ route('burgers.show',$burger->id) }}"><img src="http://placehold.it/600x600"></a>
             <div class="caption">
-              <p>{{ $burger->name_en }}</p>
+              <p>
+                <a href="{{ route('burgers.show',$burger->id) }}">{{ $burger->name_en }}</a>
+              </p>
             </div>
           </div>
         </div>

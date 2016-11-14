@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 // burgers
 Route::get('burgers',['as'=>'burgers.index','uses'=>'BurgerController@index']);
+Route::get('burgers/{id}',['as'=>'burgers.show','uses'=>'BurgerController@show']);
 
 // for now, no permissions
 Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
