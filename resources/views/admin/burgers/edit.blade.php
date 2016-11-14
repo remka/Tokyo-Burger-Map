@@ -22,14 +22,14 @@
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Dashboard</a></li>
         <li><a href="{{ route('admin.burgers') }}">Burgers</a></li>
-        <li class="active">Create burger</li>
+        <li class="active">Edit burger</li>
       </ol>
 
       <div class="pull-right">
         <a class="btn btn-default" href="{{ route('admin.burgers') }}"> Back</a>
       </div>
 
-      <h1 class="page-header">Create a burger</h1>
+      <h1 class="page-header">Edit a burger</h1>
 
       @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -42,8 +42,7 @@
     		</div>
     	@endif
 
-      {!! Form::open(array('route' => 'admin.burgers.store','method'=>'POST','class' => 'form-horizontal')) !!}
-
+      {!! Form::model($burger, ['method' => 'PATCH','route' => ['admin.burgers.update', $burger->id], 'class'=>'form-horizontal']) !!}
 
       <div class="row">
         <div class="col-md-6">

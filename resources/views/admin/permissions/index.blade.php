@@ -49,7 +49,7 @@
             <td>
               <a class="btn btn-info btn-xs" href="{{ route('admin.permissions.show',$permission->id) }}">Show</a>
               <a class="btn btn-primary btn-xs" href="{{ route('admin.permissions.edit',$permission->id) }}">Edit</a>
-              {!! Form::open(['method' => 'DELETE','route' => ['admin.permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
+              {!! Form::open(['method' => 'DELETE','route' => ['admin.permissions.destroy', $permission->id],'style'=>'display:inline','class'=>'deleteConfirm']) !!}
               {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
           	  {!! Form::close() !!}
             </td>
@@ -66,4 +66,8 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('utils')
+<script src="/js/utils.js"></script>
 @endsection

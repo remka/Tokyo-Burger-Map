@@ -48,6 +48,10 @@
             <td class="hidden-xs">{{ $burger->name_ja }}</td>
             <td>
               <a class="btn btn-info btn-xs" href="{{ route('admin.burgers.show',$burger->id) }}">Show</a>
+              <a class="btn btn-primary btn-xs" href="{{ route('admin.burgers.edit',$burger->id) }}">Edit</a>
+              {!! Form::open(['method' => 'DELETE','route' => ['admin.burgers.destroy', $burger->id],'style'=>'display:inline','class'=>'deleteConfirm']) !!}
+              {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+          	  {!! Form::close() !!}
             </td>
           </tr>
           @endforeach
@@ -62,4 +66,8 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('utils')
+<script src="/js/utils.js"></script>
 @endsection

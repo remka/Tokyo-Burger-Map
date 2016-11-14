@@ -170,5 +170,7 @@
 
   @yield('mapscripts')
 
+  @yield('utils')
+
 </body>
 </html>

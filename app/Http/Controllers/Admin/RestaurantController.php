@@ -65,7 +65,7 @@ class RestaurantController extends Controller
         $burger->save();
 
         return redirect()->route('admin.burgers')
-                        ->with('success','Burger created successfully.');
+                         ->with('success','Burger created successfully.');
     }
 
     public function show($id)
@@ -77,6 +77,66 @@ class RestaurantController extends Controller
           $user = Restaurant::find($id)->user;
           return view('admin.burgers.show',compact('burger', 'user'));
         }
+    }
+
+    public function edit($id)
+    {
+        $burger = Restaurant::find($id);
+        if ( ! $burger ) {
+          abort(404);
+        } else {
+          return view('admin.burgers.edit',compact('burger'));
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name_en' => 'required',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric'
+        ]);
+
+        $burger = Restaurant::find($id);
+
+        $burger->name_en = $request->input('name_en');
+        $burger->name_ja = $request->input('name_ja');
+        $burger->name_slug = slugify($request->input('name_en'));
+
+        $burger->latitude = $request->input('latitude');
+        $burger->longitude = $request->input('longitude');
+
+        $burger->address_1 = $request->input('address_1');
+        $burger->address_2 = $request->input('address_2');
+        $burger->address_3 = $request->input('address_3');
+        $burger->municipality = $request->input('municipality');
+        $burger->prefecture = $request->input('prefecture');
+        $burger->postcode = $request->input('postcode');
+        $burger->country = 'JA';
+
+        if (is_null($request->input('has_nonsmoking'))) {
+          $burger->has_nonsmoking = 0;
+        } else {
+          $burger->has_nonsmoking = $request->input('has_nonsmoking');
+        }
+
+        if (is_null($request->input('has_vegetarian'))) {
+          $burger->has_vegetarian = 0;
+        } else {
+          $burger->has_vegetarian = $request->input('has_vegetarian');
+        }
+
+        $burger->save();
+
+        return redirect()->route('admin.burgers')
+                         ->with('success','Burger updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        DB::table('restaurants')->where('id',$id)->delete();
+        return redirect()->route('admin.burgers')
+                        ->with('success','Burger deleted successfully.');
     }
 
 }

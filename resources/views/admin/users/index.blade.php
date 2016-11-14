@@ -57,7 +57,7 @@
               <td>
                 <a class="btn btn-info btn-xs" href="{{ route('admin.users.show',$user->id) }}">Show</a>
                 <a class="btn btn-primary btn-xs" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>
-                {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline']) !!}
+                {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline','class'=>'deleteConfirm']) !!}
                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
           	    {!! Form::close() !!}
               </td>
@@ -74,4 +74,8 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('utils')
+<script src="/js/utils.js"></script>
 @endsection
