@@ -48,57 +48,57 @@
         <div class="col-md-6">
 
           <div class="form-group">
-            <label for="name_en" class="col-sm-2 control-label">Name (EN)</label>
-            <div class="col-sm-10">
+            <label for="name_en" class="col-sm-3 control-label">Name (EN)</label>
+            <div class="col-sm-9">
               {!! Form::text('name_en', null, array('placeholder' => 'Ex: THE GREAT BURGER','class' => 'form-control','id' => 'name_en')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="name_ja" class="col-sm-2 control-label">Name (JA)</label>
-            <div class="col-sm-10">
+            <label for="name_ja" class="col-sm-3 control-label">Name (JA)</label>
+            <div class="col-sm-9">
               {!! Form::text('name_ja', null, array('placeholder' => 'Ex: ザ グレートバーガー','class' => 'form-control','id' => 'name_ja')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="address_1" class="col-sm-2 control-label">Address 1</label>
-            <div class="col-sm-10">
+            <label for="address_1" class="col-sm-3 control-label">Address 1</label>
+            <div class="col-sm-9">
               {!! Form::text('address_1', null, array('placeholder' => '6-12-5 Jingumae','class' => 'form-control','id' => 'address_1')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="address_2" class="col-sm-2 control-label">Address 2</label>
-            <div class="col-sm-10">
+            <label for="address_2" class="col-sm-3 control-label">Address 2</label>
+            <div class="col-sm-9">
               {!! Form::text('address_2', null, array('placeholder' => 'Sunny Plaza Bldg.','class' => 'form-control','id' => 'address_2')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="address_3" class="col-sm-2 control-label">Address 3</label>
-            <div class="col-sm-10">
+            <label for="address_3" class="col-sm-3 control-label">Address 3</label>
+            <div class="col-sm-9">
               {!! Form::text('address_3', null, array('placeholder' => '1F','class' => 'form-control','id' => 'address_3')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="municipality" class="col-sm-2 control-label">Municipality</label>
-            <div class="col-sm-10">
+            <label for="municipality" class="col-sm-3 control-label">Municipality</label>
+            <div class="col-sm-9">
               {!! Form::text('municipality', null, array('placeholder' => 'Shibuya Ku','class' => 'form-control','id' => 'municipality')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="prefecture" class="col-sm-2 control-label">Prefecture</label>
-            <div class="col-sm-10">
+            <label for="prefecture" class="col-sm-3 control-label">Prefecture</label>
+            <div class="col-sm-9">
               {!! Form::text('prefecture', null, array('placeholder' => 'Tōkyo To','class' => 'form-control','id' => 'prefecture')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="postcode" class="col-sm-2 control-label">Postcode</label>
-            <div class="col-sm-10">
+            <label for="postcode" class="col-sm-3 control-label">Postcode</label>
+            <div class="col-sm-9">
               {!! Form::text('postcode', null, array('placeholder' => '150-0001','class' => 'form-control','id' => 'postcode')) !!}
             </div>
           </div>
@@ -123,22 +123,22 @@
           </div>
 
           <div class="form-group">
-            <label for="latitude" class="col-sm-2 control-label">Latitude</label>
-            <div class="col-sm-10">
+            <label for="latitude" class="col-sm-3 control-label">Latitude</label>
+            <div class="col-sm-9">
               {!! Form::text('latitude', null, array('placeholder' => '35.666216','class' => 'form-control','id' => 'latitude')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label for="longitude" class="col-sm-2 control-label">Longitude</label>
-            <div class="col-sm-10">
+            <label for="longitude" class="col-sm-3 control-label">Longitude</label>
+            <div class="col-sm-9">
               {!! Form::text('longitude', null, array('placeholder' => '139.704692','class' => 'form-control','id' => 'longitude')) !!}
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-sm-2 control-label">Options</label>
-            <div class="col-sm-10">
+            <label class="col-sm-3 control-label">Options</label>
+            <div class="col-sm-9">
               <div class="checkbox">
                 <label>
                   {{ Form::checkbox('has_nonsmoking') }}
