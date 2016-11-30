@@ -74,7 +74,7 @@ class RestaurantController extends Controller
         if ( ! $burger ) {
           abort(404);
         } else {
-          $user = Restaurant::find($id)->user;
+          $user = $burger->user;
           return view('admin.burgers.show',compact('burger', 'user'));
         }
     }

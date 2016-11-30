@@ -29,4 +29,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function burgers()
+    {
+        return $this->hasMany('App\Models\Restaurant')->orderBy('id','ASC');
+    }
 }

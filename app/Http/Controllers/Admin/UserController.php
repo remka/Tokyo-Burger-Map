@@ -47,7 +47,12 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('admin.users.show',compact('user'));
+        if ( ! $user ) {
+          abort(404);
+        } else {
+          $burgers = $user->burgers;
+          return view('admin.users.show',compact('user','burgers'));
+        }
     }
 
     public function edit($id)

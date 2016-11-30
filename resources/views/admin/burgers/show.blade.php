@@ -144,15 +144,6 @@
 
             <div class="row">
               <div class="col-sm-2">
-                <strong>Country</strong>
-              </div>
-              <div class="col-sm-10">
-                {{ $burger->country }}
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-2">
                 <strong>Non-smoking area</strong>
               </div>
               <div class="col-sm-10">
